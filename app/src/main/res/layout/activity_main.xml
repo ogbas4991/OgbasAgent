@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/surface"
+        android:elevation="2dp"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/statusDot"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@color/error" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:text="@string/service_not_running"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:contentDescription="@string/settings"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="@color/surface"
+        android:elevation="1dp">
+
+        <EditText
+            android:id="@+id/etTask"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/edit_text"
+            android:hint="@string/enter_task"
+            android:inputType="textMultiLine"
+            android:maxLines="3"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/btnVoice"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:contentDescription="@string/voice_input"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginStart="4dp" />
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/send"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipOpenSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/open_accessibility_settings"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipOpenAppInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="App Info (Restricted Settings)"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipViewLogs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agent_log" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerLogs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/no_logs_yet"
+        android:gravity="center"
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp"
+        android:visibility="gone" />
+</LinearLayout>
